@@ -1,0 +1,156 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<form method="POST" class="get-form">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="sub">Submit</button>
+</form>
+
+
+<!-- comment -->
+<div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-8">
+            <div class="d-flex flex-row align-items-center add-comment p-2 bg-white rounded"><img class="rounded-circle" src="https://i.imgur.com/QvDFBCC.jpg" width="40"><input type="text" class="form-control border-0 no-box-shadow ml-1" placeholder="Search a comment..."></div>
+            {% for y in homes %}
+            <div class="p-3 bg-white mt-2 rounded">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row user"><img class="rounded-circle img-fluid img-responsive" src="https://c6oxm85c.cloudimg.io/cdno/n/q85/https://az617363.vo.msecnd.net/imgmodels/c0600498-748f-4bcf-9952-a6b060bd411d2afdbaf7563fcf87168f159e7727a650_thumb.jpg" width="40">
+                        <div class="d-flex flex-column ml-2"><span class="font-weight-bold">{{ y.name }}</span></div>
+                    </div>
+                    <div class="d-flex align-items-center px-3 heart border"><i class="fa fa-heart heart-icon"></i><span class="ml-2">15</span></div>
+                </div>
+                <div class="comment-text text-justify mt-2">
+                    <p class="comment-text comment-text2 mt-2">{{ y.comment }}</p>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+<!-- end comment -->
+<style>
+    .comment-text2{
+        color: black;
+        padding: 10px 15px;
+        border: 1px solid black;
+    }
+    .get-form{
+        margin-top: 40px;
+    }
+    .get-form *{
+        margin-top: 40px;
+    }
+    .sub{
+        margin-top: 20px;
+        margin-left: 100px;
+        padding: 10px 15px;
+        background-color: royalblue;
+    }
+    /* Importing fonts from Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Reseting */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    max-width: 350px;
+    min-height: 500px;
+    margin: 80px auto;
+    padding: 40px 30px 30px 30px;
+    background-color: #ecf0f3;
+    border-radius: 15px;
+    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
+}
+
+.logo {
+    width: 80px;
+    margin: auto;
+}
+
+.logo img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0px 0px 3px #5f5f5f,
+        0px 0px 0px 5px #ecf0f3,
+        8px 8px 15px #a7aaa7,
+        -8px -8px 15px #fff;
+}
+
+.wrapper .name {
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 1.3px;
+    padding-left: 10px;
+    color: #555;
+}
+
+.wrapper .form-field input {
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.2rem;
+    color: #666;
+    padding: 10px 15px 10px 10px;
+    /* border: 1px solid red; */
+}
+
+.wrapper .form-field {
+    padding-left: 10px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+}
+
+.wrapper .form-field .fas {
+    color: #555;
+}
+
+.wrapper .btn {
+    box-shadow: none;
+    width: 100%;
+    height: 40px;
+    background-color: #03A9F4;
+    color: #fff;
+    border-radius: 25px;
+    box-shadow: 3px 3px 3px #b1b1b1,
+        -3px -3px 3px #fff;
+    letter-spacing: 1.3px;
+}
+
+.wrapper .btn:hover {
+    background-color: #039BE5;
+}
+
+.wrapper a {
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: #03A9F4;
+}
+
+.wrapper a:hover {
+    color: #039BE5;
+}
+
+@media(max-width: 380px) {
+    .wrapper {
+        margin: 30px 20px;
+        padding: 40px 15px 15px 15px;
+    }
+}
+</style>
+
+{% endblock content %}

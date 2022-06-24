@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<form method="POST" class="get-form">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="sub">Submit</button>
+</form>
+
+<style>
+    .get-form{
+        margin-top: 40px;
+        text-align: center;
+    }
+    .get-form *{
+        margin-top: 40px;
+    }
+    .sub{
+        margin-top: 20px;
+        margin-left: 100px;
+        padding: 10px 15px;
+        background-color: royalblue;
+    }
+</style>
+
+{% endblock content %}

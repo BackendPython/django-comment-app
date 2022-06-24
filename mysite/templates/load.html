@@ -1,0 +1,82 @@
+<div class="load">
+	<div class="outter">
+		<div class="inner"></div>
+		<div class="inner"></div>
+		<div class="inner"></div>
+	</div>
+	<div class="pole"></div>
+</div>
+
+<style>
+	.load {
+		display: none;
+		align-items: center;
+	}
+
+	.outter {
+		border: 5px solid #333;
+		width: 150px;
+		height: 80px;
+		display: flex;
+		padding: 5px;
+		border-radius: 5px;
+	}
+
+	.pole {
+		background-color: #333;
+		height: 30px;
+		width: 7px;
+		border-radius: 0 5px 5px 0;
+	}
+
+	.inner {
+		background-color: #333;
+		height: 100%;
+		opacity: 0;
+		flex: 1;
+		animation: charging-1 3s infinite;
+		border-radius: 2px;
+	}
+
+	.inner:nth-child(2) {
+		margin: 0 3px;
+		animation: charging-2 3s infinite;
+	}
+
+	.inner:nth-child(3) {
+		animation: charging-3 3s infinite;
+	}
+
+	@keyframes charging-1 {
+
+		33%,
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes charging-2 {
+
+		0%,
+		33% {
+			opacity: 0;
+		}
+
+		66%,
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes charging-3 {
+
+		0%,
+		66% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+</style>
